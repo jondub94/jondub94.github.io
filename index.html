@@ -1,800 +1,316 @@
 
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Roboto", Arial, sans-serif; background: #0f0f0f; color: #fff; }
+.yt-wrap { background: #0f0f0f; padding: 0; min-height: 100vh; }
 
-<!doctype html>
-<html lang="sv">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Jonathan Dubar – IT-support / Service Technician (CV)</title>
-  <meta name="description" content="CV för Jonathan Dubar – IT-support / Service Technician (pågående utbildning) med erfarenhet från skola och media." />
-  <meta name="theme-color" content="#070A12" />
+.topbar { background: #0f0f0f; display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-bottom: 1px solid #272727; }
+.topbar-left { display: flex; align-items: center; gap: 16px; }
+.hamburger { display: flex; flex-direction: column; gap: 4px; cursor: pointer; }
+.hamburger span { width: 20px; height: 2px; background: #aaa; display: block; }
+.yt-logo { font-size: 18px; font-weight: 700; color: #fff; letter-spacing: -0.5px; }
+.yt-logo span { color: #ff0000; }
+.search-bar { display: flex; align-items: center; background: #121212; border: 1px solid #303030; border-radius: 20px; overflow: hidden; }
+.search-bar input { background: transparent; border: none; color: #fff; padding: 6px 14px; font-size: 14px; width: 220px; outline: none; }
+.search-btn { background: #272727; border: none; padding: 7px 14px; cursor: pointer; color: #aaa; font-size: 14px; }
+.topbar-right { display: flex; align-items: center; gap: 16px; color: #aaa; font-size: 20px; }
 
-  <style>
-    :root{
-      --bg0:#05070f;
-      --bg1:#070a12;
-      --bg2:#0b1220;
-      --card: rgba(255,255,255,.07);
-      --card2: rgba(255,255,255,.10);
-      --line: rgba(255,255,255,.12);
-      --text: rgba(255,255,255,.92);
-      --muted: rgba(255,255,255,.72);
-      --faint: rgba(255,255,255,.55);
+.main { display: flex; gap: 0; }
 
-      --a1:#7dd3fc;   /* cyan */
-      --a2:#a78bfa;   /* violet */
-      --a3:#34d399;   /* green */
-      --warn:#fbbf24;
+.content { flex: 1; padding: 0; }
 
-      --shadow: 0 22px 70px rgba(0,0,0,.60);
-      --radius: 18px;
-      --radius2: 26px;
-      --max: 1120px;
+.video-player { background: #000; width: 100%; aspect-ratio: 16/9; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+.video-bg { width: 100%; height: 100%; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 24px; }
+.cv-title-screen { text-align: center; }
+.cv-name-big { font-size: 36px; font-weight: 800; color: #fff; letter-spacing: 1px; margin-bottom: 8px; }
+.cv-role-big { font-size: 16px; color: #90caf9; margin-bottom: 24px; letter-spacing: 2px; text-transform: uppercase; }
+.cv-skills-preview { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px; }
+.skill-pill { background: rgba(255,0,0,0.15); border: 1px solid rgba(255,0,0,0.4); color: #ff6b6b; padding: 4px 12px; border-radius: 14px; font-size: 12px; font-weight: 500; }
+.play-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(transparent, rgba(0,0,0,0.9)); padding: 12px 16px 8px; }
+.progress-bar-bg { height: 3px; background: rgba(255,255,255,0.2); border-radius: 2px; margin-bottom: 10px; cursor: pointer; }
+.progress-fill { height: 100%; width: 68%; background: #ff0000; border-radius: 2px; position: relative; }
+.progress-dot { width: 12px; height: 12px; background: #ff0000; border-radius: 50%; position: absolute; right: -6px; top: -4.5px; }
+.controls { display: flex; align-items: center; gap: 14px; }
+.ctrl-btn { background: none; border: none; color: #fff; font-size: 18px; cursor: pointer; padding: 0; }
+.time-display { font-size: 13px; color: #fff; font-family: monospace; }
+.vol-icon { font-size: 18px; color: #fff; }
+.ctrl-right { margin-left: auto; display: flex; gap: 14px; }
 
-      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
-      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
-    }
+.video-info { padding: 12px 16px; }
+.video-title { font-size: 18px; font-weight: 600; color: #fff; margin-bottom: 8px; line-height: 1.3; }
+.video-meta { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
+.view-info { font-size: 13px; color: #aaa; }
+.action-buttons { display: flex; gap: 8px; }
+.action-btn { background: #272727; border: none; color: #fff; padding: 7px 14px; border-radius: 18px; font-size: 13px; font-weight: 500; cursor: pointer; display: flex; align-items: center; gap: 5px; }
+.action-btn.like { background: #272727; }
+.like-count { border-left: 1px solid #3f3f3f; padding-left: 10px; }
 
-    *{ box-sizing: border-box; }
-    html,body{ height:100%; }
-    html{ scroll-behavior: smooth; }
-    body{
-      margin:0;
-      color:var(--text);
-      font: 16px/1.55 var(--sans);
-      background:
-        radial-gradient(800px 420px at 12% 10%, rgba(100,100,100,.100), transparent 0%),
-        radial-gradient(820px 460px at 00% 18%, rgba(167,139,250,.16), transparent 60%),
-        radial-gradient(900px 520px at 50% 90%, rgba(52,211,153,.10), transparent 65%),
-        linear-gradient(180deg, var(--bg0), var(--bg2));
-      overflow-x: hidden;
-    }
+.channel-row { display: flex; align-items: center; justify-content: space-between; padding: 12px 16px; border-top: 1px solid #272727; border-bottom: 1px solid #272727; }
+.channel-info { display: flex; align-items: center; gap: 12px; }
+.avatar { width: 40px; height: 40px; border-radius: 50%; background: linear-gradient(135deg, #ff0000, #cc0000); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 15px; color: #fff; }
+.channel-name { font-size: 15px; font-weight: 600; color: #fff; }
+.subs { font-size: 12px; color: #aaa; }
+.sub-btn { background: #fff; color: #0f0f0f; border: none; padding: 8px 16px; border-radius: 18px; font-weight: 600; font-size: 13px; cursor: pointer; }
 
-    /* Subtle futuristic "grid" + scanline overlay */
-    body::before{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.55;
-      background:
-        radial-gradient(700px 350px at 50% 0%, rgba(255,255,255,.06), transparent 60%),
-        linear-gradient(rgba(255,255,255,.06) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
-      background-size: auto, 64px 64px, 64px 64px;
-      mix-blend-mode: overlay;
-      transform: translateZ(0);
-    }
-    body::after{
-      content:"";
-      position:fixed;
-      inset:0;
-      pointer-events:none;
-      opacity:.28;
-      background: repeating-linear-gradient(
-        to bottom,
-        rgba(0,0,0,.00),
-        rgba(0,0,0,.00) 10px,
-        rgba(0,0,0,.18) 11px
-      );
-      mix-blend-mode: multiply;
-      transform: translateZ(0);
-    }
+.desc-box { padding: 12px 16px; }
+.desc-card { background: #272727; border-radius: 12px; padding: 12px; font-size: 13px; color: #fff; line-height: 1.6; }
+.desc-tags { color: #3ea6ff; margin-bottom: 8px; font-weight: 500; }
+.desc-text { color: #ccc; }
+.desc-text strong { color: #fff; }
+.show-more { color: #fff; font-weight: 600; font-size: 13px; margin-top: 6px; cursor: pointer; }
 
-    a{ color:inherit; text-decoration: none; }
-    a:hover{ text-decoration: underline; text-underline-offset: 3px; }
+.chapters { padding: 0 16px 12px; }
+.chap-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 10px; }
+.chapter-item { display: flex; align-items: center; gap: 10px; padding: 7px 0; border-bottom: 1px solid #1a1a1a; cursor: pointer; }
+.chapter-item:hover { background: #1a1a1a; border-radius: 8px; padding-left: 6px; }
+.chap-time { color: #3ea6ff; font-size: 12px; font-family: monospace; min-width: 42px; }
+.chap-name { font-size: 13px; color: #e0e0e0; }
+.chap-bar { flex: 1; height: 3px; background: #333; border-radius: 2px; }
+.chap-fill { height: 100%; background: #ff0000; border-radius: 2px; }
 
-    .wrap{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 26px 18px 72px;
-      position: relative;
-      isolation: isolate;
-    }
+.comments-section { padding: 0 16px 24px; }
+.comments-hdr { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 16px; }
+.comment { display: flex; gap: 10px; margin-bottom: 16px; }
+.c-avatar { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 700; color: #fff; flex-shrink: 0; }
+.c-body { flex: 1; }
+.c-name { font-size: 13px; font-weight: 500; color: #fff; margin-bottom: 2px; }
+.c-date { font-size: 12px; color: #aaa; margin-left: 6px; font-weight: 400; }
+.c-text { font-size: 14px; color: #ccc; line-height: 1.5; }
+.c-likes { font-size: 12px; color: #aaa; margin-top: 6px; display: flex; align-items: center; gap: 14px; }
 
-    /* Top HUD */
-    .hud{
-      position: sticky;
-      top: 12px;
-      z-index: 50;
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap: 12px;
-      padding: 10px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
-      box-shadow: 0 14px 50px rgba(0,0,0,.50);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-    }
+.sidebar { width: 400px; padding: 12px; flex-shrink: 0; }
+.sidebar-title { font-size: 15px; font-weight: 600; color: #fff; margin-bottom: 12px; padding-left: 4px; }
+.rec-item { display: flex; gap: 8px; margin-bottom: 12px; cursor: pointer; border-radius: 8px; padding: 4px; }
+.rec-item:hover { background: #1a1a1a; }
+.rec-thumb { width: 168px; min-width: 168px; aspect-ratio: 16/9; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 600; text-align: center; padding: 6px; line-height: 1.3; color: #fff; }
+.rec-info { flex: 1; }
+.rec-title { font-size: 13px; font-weight: 500; color: #fff; line-height: 1.4; margin-bottom: 4px; }
+.rec-ch { font-size: 12px; color: #aaa; }
+.rec-views { font-size: 12px; color: #aaa; }
+.duration-badge { position: absolute; bottom: 4px; right: 4px; background: rgba(0,0,0,0.8); color: #fff; font-size: 10px; padding: 1px 4px; border-radius: 3px; font-family: monospace; }
+.rec-thumb-wrap { position: relative; width: 168px; min-width: 168px; }
+</style>
 
-    .hud-left{
-      display:flex;
-      align-items:center;
-      gap: 10px;
-      min-width: 220px;
-    }
-
-    .pulse{
-      width: 11px; height: 11px; border-radius: 999px;
-      background: linear-gradient(180deg, var(--a1), var(--a2));
-      box-shadow: 0 0 0 4px rgba(125,211,252,.10), 0 0 24px rgba(125,211,252,.22);
-    }
-
-    .hud-title{
-      display:flex;
-      flex-direction: column;
-      gap: 2px;
-      line-height: 1.1;
-    }
-    .hud-title .k{
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: var(--faint);
-    }
-    .hud-title .v{
-      font-size: 13px;
-      color: var(--muted);
-      white-space: nowrap;
-    }
-
-    .nav{
-      display:flex;
-      gap: 6px;
-      flex-wrap: wrap;
-      justify-content:center;
-      padding: 0 6px;
-    }
-    .nav a{
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,.72);
-      padding: 8px 10px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.14);
-    }
-    .nav a:hover{
-      background: rgba(255,255,255,.08);
-      text-decoration:none;
-    }
-
-    .hud-actions{
-      display:flex;
-      gap: 8px;
-      flex-wrap: wrap;
-      justify-content:flex-end;
-      min-width: 220px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      gap: 10px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      color: var(--text);
-      cursor:pointer;
-      box-shadow: 0 14px 44px rgba(0,0,0,.44);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      font-size: 14px;
-      user-select:none;
-    }
-    .btn:hover{ background: rgba(255,255,255,.08); text-decoration:none; }
-    .btn:active{ transform: translateY(1px); }
-    .btn .ic{
-      width: 22px; height: 22px;
-      display:grid; place-items:center;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(125,211,252,.16), rgba(167,139,250,.10));
-      box-shadow: inset 0 0 0 1px rgba(255,255,255,.06);
-      font-family: var(--mono);
-      font-size: 12px;
-      color: rgba(255,255,255,.88);
-    }
-
-    /* Hero */
-    .hero{
-      margin-top: 16px;
-      border-radius: var(--radius2);
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      overflow: hidden;
-      position: relative;
-    }
-
-    .hero::before{
-      content:"";
-      position:absolute;
-      inset:-2px;
-      background:
-        radial-gradient(640px 260px at 12% 0%, rgba(125,211,252,.26), transparent 60%),
-        radial-gradient(650px 260px at 90% 10%, rgba(167,139,250,.22), transparent 62%),
-        radial-gradient(650px 260px at 40% 110%, rgba(52,211,153,.16), transparent 64%);
-      opacity:.95;
-      pointer-events:none;
-    }
-    .hero::after{
-      content:"";
-      position:absolute;
-      inset:0;
-      pointer-events:none;
-      background:
-        linear-gradient(120deg, rgba(255,255,255,.06), transparent 30%),
-        linear-gradient(0deg, rgba(0,0,0,.00), rgba(0,0,0,.22));
-      mix-blend-mode: overlay;
-      opacity:.85;
-    }
-
-    .hero-inner{
-      position: relative;
-      display:grid;
-      grid-template-columns: 1.35fr .65fr;
-      gap: 18px;
-      padding: 22px;
-      align-items: start;
-    }
-
-    h1{
-      margin: 0 0 8px 0;
-      font-size: 36px;
-      letter-spacing: -0.02em;
-      line-height: 1.08;
-    }
-    .sub{
-      margin: 0 0 14px 0;
-      color: var(--muted);
-      max-width: 78ch;
-      font-size: 15px;
-    }
-
-    .callout{
-      margin-top: 12px;
-      border-radius: 18px;
-      border: 1px solid rgba(125,211,252,.26);
-      background: linear-gradient(180deg, rgba(125,211,252,.11), rgba(0,0,0,.16));
-      padding: 12px 12px;
-      color: rgba(255,255,255,.86);
-    }
-    .callout b{ color: rgba(255,255,255,.96); }
-
-    .pillrow{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 12px;
-    }
-    .pill{
-      border: 1px solid rgba(255,255,255,.14);
-      background: rgba(0,0,0,.16);
-      color: rgba(255,255,255,.74);
-      padding: 7px 10px;
-      border-radius: 999px;
-      font-size: 12.5px;
-    }
-    .pill strong{ color: var(--text); font-weight: 700; }
-
-    .contact{
-      border-radius: var(--radius);
-      border: 1px solid rgba(255,255,255,.12);
-      background: rgba(0,0,0,.18);
-      padding: 14px;
-      position: sticky;
-      top: 74px;
-    }
-    .contact h2{
-      margin: 0 0 10px;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--faint);
-    }
-    .contact a{
-      display:flex;
-      justify-content: space-between;
-      gap: 10px;
-      padding: 10px 10px;
-      border-radius: 12px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(255,255,255,.04);
-      margin-bottom: 8px;
-    }
-    .contact a:hover{ background: rgba(255,255,255,.07); text-decoration:none; }
-    .contact .k{ color: var(--muted); font-size: 13px; }
-    .contact .v{ color: var(--text); font-weight: 700; font-size: 13px; }
-    .contact small{ color: var(--faint); display:block; margin-top: 8px; }
-
-    /* Sections */
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 16px;
-    }
-
-    .card{
-      border-radius: var(--radius2);
-      border: 1px solid rgba(255,255,255,.12);
-      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
-      box-shadow: 0 18px 60px rgba(0,0,0,.45);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      padding: 18px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .card::before{
-      content:"";
-      position:absolute;
-      inset:-1px;
-      background: radial-gradient(480px 200px at 15% 0%, rgba(125,211,252,.12), transparent 60%);
-      opacity:.9;
-      pointer-events:none;
-    }
-
-    .card > *{ position: relative; }
-
-    .card h3{
-      margin: 0 0 12px;
-      font-family: var(--mono);
-      font-size: 11px;
-      letter-spacing: .14em;
-      text-transform: uppercase;
-      color: var(--faint);
-    }
-
-    .section{
-      display:flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .item{
-      padding: 14px;
-      border-radius: 18px;
-      border: 1px solid rgba(255,255,255,.10);
-      background: rgba(0,0,0,.18);
-    }
-
-    .item .head{
-      display:flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: baseline;
-      flex-wrap: wrap;
-      margin-bottom: 6px;
-    }
-
-    .role{
-      font-weight: 850;
-      color: var(--text);
-      letter-spacing: -.01em;
-    }
-
-    .meta{
-      color: var(--muted);
-      font-size: 13px;
-    }
-
-    .item ul{
-      margin: 8px 0 0 18px;
-      padding: 0;
-      color: var(--muted);
-    }
-    .item li{ margin: 6px 0; }
-
-    .split{
-      display:grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-    }
-
-    .list{
-      margin:0;
-      padding-left: 18px;
-      color: var(--muted);
-    }
-
-    .anchor{
-      position: relative;
-      scroll-margin-top: 92px;
-    }
-
-    .footer{
-      margin-top: 20px;
-      color: var(--faint);
-      font-size: 12px;
-      text-align: center;
-      font-family: var(--mono);
-      letter-spacing: .06em;
-    }
-
-    /* Motion: respect reduced motion */
-    @media (prefers-reduced-motion: no-preference){
-      .pulse{
-        animation: pulse 2.8s ease-in-out infinite;
-      }
-      @keyframes pulse{
-        0%,100%{ transform: scale(1); filter: saturate(1); }
-        50%{ transform: scale(1.15); filter: saturate(1.15); }
-      }
-    }
-
-    @media (max-width: 980px){
-      .hud{ border-radius: 22px; padding: 12px; }
-      .hud-left, .hud-actions{ min-width: unset; }
-      .hero-inner{ grid-template-columns: 1fr; }
-      .contact{ position: relative; top: auto; }
-    }
-
-    @media (max-width: 860px){
-      h1{ font-size: 30px; }
-      .grid{ grid-template-columns: 1fr; }
-      .split{ grid-template-columns: 1fr; }
-      .nav{ justify-content:flex-start; }
-    }
-
-    @media print{
-      html{ scroll-behavior:auto; }
-      body{
-        background:#fff !important;
-        color:#111 !important;
-      }
-      body::before, body::after{ display:none !important; }
-      .hud{ position: static; box-shadow:none !important; backdrop-filter:none !important; }
-      .btn, .nav{ display:none !important; }
-      .hero, .card, .item, .contact{
-        box-shadow:none !important;
-        backdrop-filter:none !important;
-        -webkit-backdrop-filter:none !important;
-        background:#fff !important;
-        border: 1px solid #ddd !important;
-      }
-      .hero::before, .hero::after, .card::before{ display:none !important; }
-      a{ text-decoration:none; color:inherit; }
-      .contact{ position: relative; top:auto; }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="wrap">
-    <header class="hud" aria-label="Navigation">
-      <div class="hud-left">
-        <div class="pulse" aria-hidden="true"></div>
-        <div class="hud-title">
-          <div class="k">IT-support / Service Technician</div>
-          <div class="v">CV • Jonathan Dubar</div>
-        </div>
-      </div>
-
-      <nav class="nav" aria-label="Sektioner">
-        <a href="#profil">Profil</a>
-        <a href="#kompetenser">Kompetenser</a>
-        <a href="#utbildning">Utbildning</a>
-        <a href="#erfarenhet">Erfarenhet</a>
-        <a href="#projekt">Projekt</a>
-      </nav>
-
-      <div class="hud-actions">
-        <button class="btn" onclick="window.print()" title="Skriv ut / spara som PDF">
-          <span class="ic">PDF</span>
-          <span>Skriv ut</span>
-        </button>
-        <a class="btn" href="mailto:jondub94@gmail.com" title="Skicka mail">
-          <span class="ic">@</span>
-          <span>Maila</span>
-        </a>
-      </div>
-    </header>
-
-    <section class="hero anchor" id="profil" aria-label="Profil">
-      <div class="hero-inner">
-        <div>
-          <h1>Jonathan Dubar</h1>
-          <p class="sub">
-            Blivande <b>IT-support / Service Technician</b> (pågående utbildning 2026) med stark vana att hjälpa användare,
-            felsöka problem och skapa tydliga rutiner. Flera års erfarenhet från skolmiljö där jag arbetat strukturerat,
-            pedagogiskt och lösningsorienterat – och jag trivs när jag får kombinera <b>teknik</b>, <b>service</b> och <b>kommunikation</b>.
-          </p>
-
-          <div class="callout">
-            <b>Mål:</b> IT-support (1st/2nd line), servicedesk eller onsite där jag får ta ärenden, felsöka, dokumentera och hjälpa användare
-            att komma vidare snabbt.
-          </div>
-
-          <div class="pillrow" aria-label="Nyckelkompetenser">
-            <div class="pill"><strong>Support</strong> • bemötande • ärendehantering</div>
-            <div class="pill"><strong>Felsök</strong> • metodiskt • steg‑för‑steg</div>
-            <div class="pill"><strong>Dokumentation</strong> • tydliga instruktioner</div>
-            <div class="pill"><strong>Pedagogik</strong> • vana användarstöd</div>
-          </div>
-        </div>
-
-        <aside class="contact" aria-label="Kontakt">
-          <h2>Kontakt</h2>
-          <a href="tel:+46703202993">
-            <span class="k">Mobil</span>
-            <span class="v">070-320 29 93</span>
-          </a>
-          <a href="mailto:jondub94@gmail.com">
-            <span class="k">E‑post</span>
-            <span class="v">jondub94@gmail.com</span>
-          </a>
-          <a href="#" onclick="copyEmail(event)">
-            <span class="k">Kopiera e‑post</span>
-            <span class="v">Klicka</span>
-          </a>
-          <small>Tips: “Skriv ut” ger en ren PDF‑version utan effekter.</small>
-        </aside>
-      </div>
-    </section>
-
-    <div class="grid" aria-label="Kärnsektioner">
-      <section class="card">
-        <h3>IT‑profil</h3>
-        <div class="section">
-          <div class="item">
-            <div class="head">
-              <div class="role">Arbetssätt i support</div>
-              <div class="meta">Diagnos → åtgärd → dokumentation</div>
-            </div>
-            <ul>
-              <li>Tar emot ärenden, ställer rätt frågor, prioriterar och följer upp tills användaren är igång.</li>
-              <li>Felsöker metodiskt: reproducerar felet, isolerar orsaken och testar lösning stegvis.</li>
-              <li>Dokumenterar lösningar så att återkommande problem blir enklare nästa gång.</li>
-              <li>Förklarar teknik lugnt och begripligt, anpassat efter användarnivå.</li>
-            </ul>
-          </div>
-
-          <div class="item">
-            <div class="head">
-              <div class="role">Styrkor</div>
-              <div class="meta">Service • struktur • tålamod</div>
-            </div>
-            <ul>
-              <li>Serviceinriktad och gillar att lösa problem tillsammans med användaren.</li>
-              <li>Trivs i miljöer med rutiner, ansvar och tydliga mål (ärendeflöde, SLA, checklistor).</li>
-              <li>Van att samarbeta i team och kommunicera tydligt i pressade lägen.</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <section class="card anchor" id="kompetenser">
-        <h3>Kompetenser</h3>
-        <div class="section">
-          <div class="item">
-            <div class="head">
-              <div class="role">IT (under uppbyggnad via utbildning)</div>
-              <div class="meta">2026</div>
-            </div>
-            <ul class="list">
-              <li>Grundläggande nätverkstänk (felsökning, lager, anslutning)</li>
-              <li>PC‑miljö & användarstöd</li>
-              <li>Dokumentation och rutiner</li>
-            </ul>
-          </div>
-
-          <div class="split">
-            <div class="item">
-              <div class="head">
-                <div class="role">Verktyg</div>
-                <div class="meta">Vardag</div>
-              </div>
-              <ul class="list">
-                <li>Excel, Word</li>
-                <li>Google Apps</li>
-                <li>Audacity (ljud)</li>
-              </ul>
-            </div>
-
-            <div class="item">
-              <div class="head">
-                <div class="role">Språk</div>
-                <div class="meta">Kommunikation</div>
-              </div>
-              <ul class="list">
-                <li>Svenska (modersmål)</li>
-                <li>Engelska (flytande)</li>
-              </ul>
-            </div>
-          </div>
-
-          <div class="item">
-            <div class="head">
-              <div class="role">Övrigt</div>
-              <div class="meta">Praktiskt</div>
-            </div>
-            <ul class="list">
-              <li>Körkort B</li>
-            </ul>
-          </div>
-        </div>
-      </section>
+<div class="yt-wrap">
+  <div class="topbar">
+    <div class="topbar-left">
+      <div class="hamburger"><span></span><span></span><span></span></div>
+      <div class="yt-logo">You<span>Tube</span></div>
     </div>
-
-    <section class="card anchor" id="utbildning" style="margin-top:16px;">
-      <h3>Utbildning</h3>
-      <div class="section">
-        <div class="item">
-          <div class="head">
-            <div class="role">IT‑utbildning – IT‑support / Service Technician</div>
-            <div class="meta">Pågående • Start 5 januari 2026 – beräknad examen december 2026</div>
-          </div>
-          <ul>
-            <li>Fokus: support, felsökning, kundbemötande, dokumentation och tekniska grunder.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="head">
-            <div class="role">Luleå Tekniska Universitet</div>
-            <div class="meta">2014–2017</div>
-          </div>
-          <div class="meta">Filosofie kandidatexamen i Medie‑ och kommunikationsvetenskap</div>
-          <div class="meta">Inriktning: Journalistik i nya medier, TV</div>
-        </div>
-      </div>
-    </section>
-
-    <section class="card anchor" id="erfarenhet" style="margin-top:16px;">
-      <h3>Relevant erfarenhet</h3>
-      <div class="section">
-        <div class="item">
-          <div class="head">
-            <div class="role">Kannebäcksskolan • Elevassistent</div>
-            <div class="meta">Göteborg • 2019–Nuvarande</div>
-          </div>
-          <ul>
-            <li>Dagligt användarstöd i en miljö med höga krav på tydlig kommunikation, struktur och problemlösning.</li>
-            <li>Skapade individuella planer och arbetade metodiskt med uppföljning och förbättringar.</li>
-            <li>Samarbetade nära kollegor (”team support”) för att anpassa insatser efter behov.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="head">
-            <div class="role">Skytteskolan • Elevresurs</div>
-            <div class="meta">Göteborg</div>
-          </div>
-          <ul>
-            <li>Arbetade med stödstrukturer, rutiner och problemlösning i vardagen.</li>
-            <li>Vana av att förklara och guida steg‑för‑steg (relevant i supportarbete).</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="head">
-            <div class="role">Pon Equipment • Receptionist</div>
-            <div class="meta">Göteborg</div>
-          </div>
-          <ul>
-            <li>Kundkontakt, växel och administration – servicevana och tydlig kommunikation.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="card" style="margin-top:16px;">
-      <h3>Övrig erfarenhet (bonus)</h3>
-      <div class="section">
-        <div class="item">
-          <div class="head">
-            <div class="role">BUP • Filmare och redigerare</div>
-            <div class="meta">Projektbaserat</div>
-          </div>
-          <ul>
-            <li>Producerade undervisningsmaterial för att förklara ett nytt vårdsystem (tydlighet & pedagogik).</li>
-            <li>Premiere Pro / After Effects, planering och leverans enligt krav.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="head">
-            <div class="role">Mechanic Eye • Medieproducent</div>
-            <div class="meta">Göteborg</div>
-          </div>
-          <ul>
-            <li>Arbete med teknik, verktyg och produktion i ett professionellt flöde.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="head">
-            <div class="role">Massa Media Piteå AB • Bokare</div>
-            <div class="meta">Piteå</div>
-          </div>
-          <ul>
-            <li>Planering, kommunikation och koordinering inför livesändningar.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <section class="card anchor" id="projekt" style="margin-top:16px;">
-      <h3>Projekt</h3>
-      <div class="section">
-        <div class="item">
-          <div class="head">
-            <div class="role">Borås Allmänna Idrottsklubb (BAIK) • Filmare</div>
-            <div class="meta">Borås</div>
-          </div>
-          <ul>
-            <li>Filmade, ljussatte och ställde in ljud för intervjuer. Leverans enligt krav och tidsram.</li>
-          </ul>
-        </div>
-
-        <div class="item">
-          <div class="head">
-            <div class="role">Boxningsdokumentär om Linda Larsson • Filmare & redigerare</div>
-            <div class="meta">Personporträtt</div>
-          </div>
-          <ul>
-            <li>Planering, inspelning och postproduktion – vana att driva uppgifter från start till mål.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <div class="footer">
-      © <span id="year"></span> Jonathan Dubar • Fokus: IT‑support / Service Technician
+    <div class="search-bar">
+      <input type="text" value="Jonathan Dubar IT Support CV" readonly />
+      <button class="search-btn">🔍</button>
+    </div>
+    <div class="topbar-right">
+      <span>🎬</span><span>🔔</span><span>👤</span>
     </div>
   </div>
 
-  <script>
-    const EMAIL = "jondub94@gmail.com";
-    function copyEmail(e){
-      e.preventDefault();
-      navigator.clipboard.writeText(EMAIL).then(() => toast("E-post kopierad")).catch(() => toast("Kunde inte kopiera"));
-    }
+  <div class="main">
+    <div class="content">
+      <div class="video-player">
+        <div class="video-bg">
+          <div class="cv-title-screen">
+            <div class="cv-name-big">JONATHAN DUBAR</div>
+            <div class="cv-role-big">IT-Support / Service Technician</div>
+            <div class="cv-skills-preview">
+              <span class="skill-pill">TCP/IP</span>
+              <span class="skill-pill">Active Directory</span>
+              <span class="skill-pill">VLAN</span>
+              <span class="skill-pill">OSPF</span>
+              <span class="skill-pill">SSH</span>
+              <span class="skill-pill">DNS & DHCP</span>
+              <span class="skill-pill">GPO</span>
+              <span class="skill-pill">Cisco</span>
+            </div>
+            <div style="font-size:13px; color:#90caf9; opacity:0.8;">📍 Göteborg &nbsp;|&nbsp; 📧 jondub94@gmail.com &nbsp;|&nbsp; 📞 070-320 29 93</div>
+          </div>
+        </div>
+        <div class="play-overlay">
+          <div class="progress-bar-bg">
+            <div class="progress-fill"><div class="progress-dot"></div></div>
+          </div>
+          <div class="controls">
+            <button class="ctrl-btn">⏮</button>
+            <button class="ctrl-btn">▶</button>
+            <button class="ctrl-btn">⏭</button>
+            <span class="vol-icon">🔊</span>
+            <span class="time-display">4:23 / 6:27</span>
+            <div class="ctrl-right">
+              <button class="ctrl-btn" style="font-size:13px;">CC</button>
+              <button class="ctrl-btn" style="font-size:13px;">⚙️</button>
+              <button class="ctrl-btn" style="font-size:13px;">⛶</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-    let toastTimer;
-    function toast(msg){
-      clearTimeout(toastTimer);
-      let el = document.getElementById("toast");
-      if(!el){
-        el = document.createElement("div");
-        el.id = "toast";
-        el.style.position = "fixed";
-        el.style.left = "50%";
-        el.style.bottom = "18px";
-        el.style.transform = "translateX(-50%)";
-        el.style.padding = "10px 12px";
-        el.style.borderRadius = "14px";
-        el.style.border = "1px solid rgba(255,255,255,.16)";
-        el.style.background = "rgba(0,0,0,.70)";
-        el.style.backdropFilter = "blur(10px)";
-        el.style.webkitBackdropFilter = "blur(10px)";
-        el.style.boxShadow = "0 18px 60px rgba(0,0,0,.55)";
-        el.style.color = "rgba(255,255,255,.92)";
-        el.style.fontFamily = getComputedStyle(document.documentElement).getPropertyValue('--mono');
-        el.style.fontSize = "13px";
-        el.style.letterSpacing = ".06em";
-        el.style.zIndex = "9999";
-        document.body.appendChild(el);
-      }
-      el.textContent = msg;
-      el.style.opacity = "1";
-      toastTimer = setTimeout(() => { el.style.opacity = "0"; }, 1700);
-    }
+      <div class="video-info">
+        <div class="video-title">Mitt CV – Jonathan Dubar | IT-Support & Network Engineer | Göteborg 2026 🔴 LIVE SÖKER JOBB</div>
+        <div class="video-meta">
+          <div class="view-info">84 721 visningar &nbsp;•&nbsp; 12 jan 2026 &nbsp;•&nbsp; <span style="color:#3ea6ff;">#ITSupport #Nätverk #Göteborg</span></div>
+          <div class="action-buttons">
+            <button class="action-btn like">👍 <span>4,2K</span> <span class="like-count">👎</span></button>
+            <button class="action-btn">↗ Dela</button>
+            <button class="action-btn">✂️ Klipp</button>
+            <button class="action-btn">⋯ Mer</button>
+          </div>
+        </div>
+      </div>
 
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
-</body>
-</html>
+      <div class="channel-row">
+        <div class="channel-info">
+          <div class="avatar">JD</div>
+          <div>
+            <div class="channel-name">Jonathan Dubar Careers ✓</div>
+            <div class="subs">3,1K prenumeranter</div>
+          </div>
+        </div>
+        <button class="sub-btn">🔔 Prenumerera</button>
+      </div>
+
+      <div class="desc-box">
+        <div class="desc-card">
+          <div class="desc-tags">#ITSupport #ServiceTechnician #Göteborg #LedigJobb #Nätverk</div>
+          <div class="desc-text">
+            <strong>Hej! Jag heter Jonathan Dubar</strong> och söker jobb inom IT-support, servicedesk eller onsite support.<br><br>
+            🎓 Pågående utbildning: IT-Support / Service Technician (klar dec 2026)<br>
+            🏢 Erfarenhet: Elevassistent sedan 2019 – Kannebäcksskolan, Göteborg<br><br>
+            <strong>Tekniska kunskaper:</strong> TCP/IP · UDP · OSPF · RIP · Static Route · DHCP · DNS · VLAN · Trunk · Access-list · Telnet · SSH · Switchar · Router · Active Directory · GPO · Windows Server · Cisco Packet Tracer · VMware Workstation<br><br>
+            📞 070-320 29 93 &nbsp;|&nbsp; 📧 jondub94@gmail.com
+          </div>
+          <div class="show-more">...visa mer</div>
+        </div>
+      </div>
+
+      <div class="chapters">
+        <div class="chap-title">Kapitel</div>
+        <div class="chapter-item">
+          <span class="chap-time">0:00</span>
+          <span class="chap-name">👋 Introduktion – Vem är Jonathan?</span>
+          <div class="chap-bar"><div class="chap-fill" style="width:100%"></div></div>
+        </div>
+        <div class="chapter-item">
+          <span class="chap-time">0:48</span>
+          <span class="chap-name">🎓 Utbildning & Bakgrund</span>
+          <div class="chap-bar"><div class="chap-fill" style="width:100%"></div></div>
+        </div>
+        <div class="chapter-item">
+          <span class="chap-time">1:55</span>
+          <span class="chap-name">💼 Arbetslivserfarenhet</span>
+          <div class="chap-bar"><div class="chap-fill" style="width:100%"></div></div>
+        </div>
+        <div class="chapter-item">
+          <span class="chap-time">3:10</span>
+          <span class="chap-name">🌐 Nätverkskunskaper – TCP/IP, OSPF, VLAN...</span>
+          <div class="chap-bar"><div class="chap-fill" style="width:68%"></div></div>
+        </div>
+        <div class="chapter-item">
+          <span class="chap-time">4:42</span>
+          <span class="chap-name">🖥️ Server & Active Directory</span>
+          <div class="chap-bar"><div class="chap-fill" style="width:0%"></div></div>
+        </div>
+        <div class="chapter-item">
+          <span class="chap-time">5:50</span>
+          <span class="chap-name">📞 Kontaktinfo & Outro</span>
+          <div class="chap-bar"><div class="chap-fill" style="width:0%"></div></div>
+        </div>
+      </div>
+
+      <div class="comments-section">
+        <div class="comments-hdr">847 kommentarer</div>
+
+        <div class="comment">
+          <div class="c-avatar" style="background:#e53935;">HR</div>
+          <div class="c-body">
+            <div class="c-name">HR-Chef Volvo 🚗 <span class="c-date">3 dagar sedan</span></div>
+            <div class="c-text">Imponerande! OSPF och VLAN i samma CV? Skickade ett jobbmail! 🔥</div>
+            <div class="c-likes">👍 312 &nbsp; Svara</div>
+          </div>
+        </div>
+
+        <div class="comment">
+          <div class="c-avatar" style="background:#1565c0;">IT</div>
+          <div class="c-body">
+            <div class="c-name">IT-Proffs Sverige <span class="c-date">1 vecka sedan</span></div>
+            <div class="c-text">Cisco Packet Tracer + VMware + Active Directory = komplett paket 💯 Lycka till!</div>
+            <div class="c-likes">👍 188 &nbsp; Svara</div>
+          </div>
+        </div>
+
+        <div class="comment">
+          <div class="c-avatar" style="background:#2e7d32;">NK</div>
+          <div class="c-body">
+            <div class="c-name">Nätverkskungen <span class="c-date">2 veckor sedan</span></div>
+            <div class="c-text">SSH och Telnet på samma CV och han kan teckenspråk också?? Hire this man immediately 😂👏</div>
+            <div class="c-likes">👍 94 &nbsp; Svara</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sidebar">
+      <div class="sidebar-title">Upp härnäst</div>
+
+      <div class="rec-item">
+        <div class="rec-thumb-wrap">
+          <div class="rec-thumb" style="background: linear-gradient(135deg,#1a237e,#283593);">Active Directory & GPO – Komplett guide</div>
+          <div class="duration-badge">14:32</div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-title">Active Directory & GPO – Allt du behöver veta</div>
+          <div class="rec-ch">IT-utbildning Sverige</div>
+          <div class="rec-views">23K visningar</div>
+        </div>
+      </div>
+
+      <div class="rec-item">
+        <div class="rec-thumb-wrap">
+          <div class="rec-thumb" style="background: linear-gradient(135deg,#b71c1c,#c62828);">OSPF & RIP konfiguration Cisco router</div>
+          <div class="duration-badge">22:17</div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-title">OSPF vs RIP – Cisco konfiguration steg för steg</div>
+          <div class="rec-ch">NetworkNerd</div>
+          <div class="rec-views">41K visningar</div>
+        </div>
+      </div>
+
+      <div class="rec-item">
+        <div class="rec-thumb-wrap">
+          <div class="rec-thumb" style="background: linear-gradient(135deg,#004d40,#00695c);">VLAN & Trunk – Switchkonfiguration</div>
+          <div class="duration-badge">18:05</div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-title">VLAN och Trunk – Packet Tracer labb</div>
+          <div class="rec-ch">CiscoKursen</div>
+          <div class="rec-views">18K visningar</div>
+        </div>
+      </div>
+
+      <div class="rec-item">
+        <div class="rec-thumb-wrap">
+          <div class="rec-thumb" style="background: linear-gradient(135deg,#4a148c,#6a1b9a);">IT Jobb 2026 – Vad söker arbetsgivare?</div>
+          <div class="duration-badge">9:44</div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-title">IT-jobb 2026 – Vad vill arbetsgivare ha?</div>
+          <div class="rec-ch">TechKarriär</div>
+          <div class="rec-views">67K visningar</div>
+        </div>
+      </div>
+
+      <div class="rec-item">
+        <div class="rec-thumb-wrap">
+          <div class="rec-thumb" style="background: linear-gradient(135deg,#e65100,#ef6c00);">SSH, Telnet & DNS – Nätverksgrunder</div>
+          <div class="duration-badge">11:28</div>
+        </div>
+        <div class="rec-info">
+          <div class="rec-title">SSH vs Telnet – Säker nätverksåtkomst förklarat</div>
+          <div class="rec-ch">NätverksProffs</div>
+          <div class="rec-views">29K visningar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
